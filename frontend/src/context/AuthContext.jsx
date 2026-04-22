@@ -49,7 +49,7 @@ export const AuthProvider = ({ children }) => {
         headers: { Authorization: `Bearer ${userInfo.token}` },
       };
       
-      const { data } = await axios.post(`/api/users/favorites/${propertyId}`, {}, config);
+      const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/api/users/favorites/${propertyId}`, {}, config);
       
       if (data.success) {
         setFavorites(data.favorites); // Sync with actual server response

@@ -20,7 +20,7 @@ const Login = () => {
     setError(null);
     try {
       const config = { headers: { 'Content-Type': 'application/json' } };
-      const { data } = await axios.post('/api/auth/login', { email, password }, config);
+      const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/login`, { email, password }, config);
       console.log('Login Success:', data);
       login(data);
       if (data.role === 'agent') {

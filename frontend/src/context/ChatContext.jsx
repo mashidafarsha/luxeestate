@@ -12,7 +12,7 @@ export const ChatProvider = ({ children }) => {
 
   useEffect(() => {
     if (userInfo && userInfo.token) {
-      const newSocket = io('http://localhost:5000'); // Use env variable in prod
+      const newSocket = io(import.meta.env.VITE_API_URL); // Use env variable in prod
       setSocket(newSocket);
 
       // Listener for global notifications (messages for me)
